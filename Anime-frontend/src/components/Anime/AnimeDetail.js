@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Axios from "../utils/Axios";
+import { Link } from "react-router-dom";
 
 
 export class AnimeDetail extends Component {
@@ -29,37 +30,45 @@ export class AnimeDetail extends Component {
         );
         console.log(results)
         
-  
-        // this.setState(
-        //   {
-        //       title: results.data.title,
-        //       image: results.data.image,
-        //       isLoading: false,
-        //   },
-        //   () => {
-        //     this.setState({
-        //       friendMessage: `I think this Dish is delicious. ${this.state.title}`,
-        //     });
-        //   }
-        // );
+        this.setState(
+          {
+              title: results.data.title,
+              japanese_title:results.data.japanese_title,
+              type: results.data.type,
+              image: results.data.image_url,
+              episodes: results.data.episodes,
+              score: results.data.score,
+              synopsis: results.data.synopsis,
+              isLoading: false,
+          },
+          () => {
+            this.setState({
+              friendMessage: `I think this Dish is delicious. ${this.state.title}`,
+            });
+          }
+        );
       } catch (e) {
         console.log(e);
       }
     };
   
-    showRecipeDetail = () => {
+    showAnimeDetail = () => {
       console.log('thisState:',this.state)
       return (
         <div style={{ display: "flex" }}>
           <div>
             <img src={this.state.image} alt={this.state.title} />
           </div>
-          <div>
-          <div>Serving Size: {this.state.servings}</div>  
-            <div>Dish Type: {this.state.dishTypes}</div> 
-            <div>Likes: {this.state.aggregateLikes}</div> 
+          <ol>
+          <li>Anime Title: {this.state.title}</li>
+            <li>Type: {this.state.type}</li> 
+            <li> episodes: {this.state.episodes}</li> 
+            <li> score: {this.state.score}</li> 
+            <li> synopsis: {this.state.synopsis}</li> 
             
-          </div>
+          </ol>
+          <Link to="../Home"> <button>go back</button></Link>
+          
         </div>
       );
     };
@@ -106,9 +115,9 @@ export class AnimeDetail extends Component {
             </div>
           ) : (
             <div>
-              {this.showRecipeDetail()}
+              {this.showAnimeDetail()}
   
-              <div style={{ width: 250, margin: "0 auto", textAlign: "center" }}>
+              {/* <div style={{ width: 250, margin: "0 auto", textAlign: "center" }}>
                 <select onChange={this.handleSelectChange}>
                   <option>Select a friend</option>
                   {this.state.friendsArray.map((friend) => {
@@ -126,7 +135,7 @@ export class AnimeDetail extends Component {
                 />
                 <br />
                 <button onClick={this.handleFormSubmit}>Submit</button>
-              </div>
+              </div> */}
             </div>
           )}
         </div>

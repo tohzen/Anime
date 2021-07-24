@@ -3,8 +3,15 @@ import axios from "axios";
 import AnimeList from "./AnimeList";
 export class Anime extends Component {
     state = {
-        title: "",
-        animeArray: []
+      title: "",
+      type: "",
+      episodes: "",
+      image_url: "",
+      isLoading: true,
+      score: "",
+      synopsis: "",
+      title_japanese: "",
+      animeArray: []
     }
     handleSearchAnime = async (title) => {
         try {

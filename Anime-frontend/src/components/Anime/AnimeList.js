@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
+
 function AnimeList(props) {
     return props.animeArray.map((item) => {
         console.log('animeList', item.mal_id)

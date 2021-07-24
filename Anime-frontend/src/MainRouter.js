@@ -7,6 +7,7 @@ import Home from "./components/Home/Home";
 import Nav from "./components/Nav/Nav";
 import Anime from "./components/Anime/Anime";
 import AnimeDetail from "./components/Anime/AnimeDetail"
+import AnimeList from "./components/Anime/AnimeList";
 // import Movie from "./components/Movie/Movie";
 // import MovieDetail from "./components/Movie/MovieDetail";
 import Profile from "./components/Profile/Profile";
@@ -21,7 +22,6 @@ const MainRouter = (props) => {
         {/* <Route exact path="/movie" component={Movie} /> */}
         <PrivateRoute exact path="/create-friend" component={CreateFriend} />
         <PrivateRoute exact path="/anime" component={Anime} />
-        <PrivateRoute exact path="/anime-detail" component={AnimeDetail} />
 
         <PrivateRoute
           exact

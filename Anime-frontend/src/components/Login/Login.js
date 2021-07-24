@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { isEmpty, isEmail } from "validator";
 import jwtDecode from "jwt-decode";
-
 import { toast } from "react-toastify";
 import Axios from "../utils/Axios";
 import checkIfUserIsAuth from "../utils/checkIfUserIsAuth";
 import setAxiosAuthToken from "../utils/setAxiosAuthToken";
-
 import "./Login.css";
+
+
 export class Login extends Component {
   state = {
     email: "",
@@ -23,7 +23,7 @@ export class Login extends Component {
     let isAuth = checkIfUserIsAuth();
 
     if (isAuth) {
-      this.props.history.push("/recipe");
+      this.props.history.push("/anime");
     }
   }
 
@@ -91,12 +91,12 @@ export class Login extends Component {
 
   handleOnSubmit = async (event) => {
     event.preventDefault();
-
     try {
       let result = await Axios.post("/api/user/login", {
         email: this.state.email,
         password: this.state.password,
       });
+     
 
       let jwtToken = result.data.payload;
 
@@ -112,7 +112,7 @@ export class Login extends Component {
       window.localStorage.setItem("jwtToken", jwtToken);
       toast.success("Login success!");
 
-      this.props.history.push("/movie");
+      this.props.history.push("/anime");
     } catch (e) {
       if (e.response.status === 429) {
         toast.error(e.response.data);
@@ -125,8 +125,9 @@ export class Login extends Component {
   render() {
     const { email, emailError, password, passwordError, canSubmit } =
       this.state;
+    console.log(this.state);
 
-    //console.log(this.props);
+    console.log(this.props);
 
     return (
       <div className="container">
