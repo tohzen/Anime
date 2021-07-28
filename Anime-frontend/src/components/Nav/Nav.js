@@ -17,7 +17,7 @@ export class Nav extends Component {
             <li>
               {this.props.user ? (
                 <NavLink activeClassName="selected" to="/anime">
-                  Anime Goodies!!!!
+                  Find new Anime!!!!
                 </NavLink>
               ) : (
                 ""
