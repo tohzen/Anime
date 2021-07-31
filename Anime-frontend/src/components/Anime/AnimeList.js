@@ -1,5 +1,7 @@
 import React from "react";
+
 import { Link } from "react-router-dom";
+import "./AnimeList.css";
 
 
 function AnimeList(props) {
@@ -16,12 +18,12 @@ function AnimeList(props) {
           }}
         >
           <div>
+            <button className="fav">Favorite</button>
             <img src={item.image_url} alt={item.title} />
           </div>
           <div>
             <ul>
               <li>Anime: {item.title}</li>
-              <li>Servings: {item.servings} </li>
             </ul>
           </div>
         </Link>

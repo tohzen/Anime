@@ -85,7 +85,7 @@ export class CreateFriend extends Component {
     return (
       <>
         <div className="update-container">
-          <h3>Create Friend</h3>
+          <h3>Favorites List</h3>
           <form onSubmit={this.handleFriendSubmit}>
             <div className="input-div">
               <input

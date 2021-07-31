@@ -8,10 +8,9 @@ export class Friend extends Component {
         <table id="friends">
           <thead>
             <tr id="tr">
-              <th>first name</th>
-              <th>last name</th>
-              <th>mobile number</th>
-              <th>edit</th>
+              <th>Title</th>
+              <th>Watched</th>
+              <th>Edit</th>
               <th>Delete</th>
             </tr>
           </thead>
